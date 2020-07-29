@@ -1,4 +1,3 @@
-import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 from table import Results
@@ -44,15 +43,6 @@ def predict():
     except:
         return render_template('index.html', table="Podane słowo nie występuje w słowniku"  )
 
-
-@app.route('/results',methods=['POST'])
-def results():
-
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
 
 if __name__ == "__main__":
     app.run(debug=True)
