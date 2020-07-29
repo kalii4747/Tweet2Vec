@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+    <header>
+     <div class="login">
+        <h1>Most similar</h1>
+
+         <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post">
+            <select id="party" name="party"> 
+              <option value="0">PiS</option> 
+              <option value="1">KO</option>
+                <option value="2">Lewica</option>
+                <option value="3">Konfederacja</option>
+                <option value="4">PSL-Kukiz</option>
+            </select> 
+
+            <input type="text" name="keyword" placeholder="słowo kluczowe" required="required" />
+
+            <input type="text" name="topn" placeholder="liczba słów" required="required" />
+
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Pokaż najbardziej podobne słowa</button>
+        </form>
+
+       <br>
+       <br>
+       {{ table }}
+
+
+     </div>
+
+    </header>
+</body>
+</html>
