@@ -36,6 +36,7 @@ body {
     width: 35%;
     float: left;
     padding-left: 15%;
+	padding-top: 10%
     position: relative;
 }
 
@@ -45,6 +46,7 @@ body {
     width: 35%;
     float: left;
     padding-left: 15%;
+	padding-top: 10%
 }
 
 input, select { 
