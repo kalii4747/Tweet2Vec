@@ -16,7 +16,7 @@ def predict():
         
     try:
         party = request.form.get("party")
-        key_word = request.form.get("keyword")
+        key_word = request.form.get("keyword").lower()
         topn = int(request.form.get("topn"))
 
         if party == "0":
