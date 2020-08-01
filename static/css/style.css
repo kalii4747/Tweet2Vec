@@ -33,11 +33,11 @@ body {
 
 }
 .login { 
-    width: 35%;
+	width: 35%;
     float: left;
     padding-left: 15%;
-	padding-top: 5%;
     position: relative;
+    padding-top: 5%;
 }
 
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
@@ -46,7 +46,41 @@ body {
     width: 35%;
     float: left;
     padding-left: 15%;
-	padding-top: 5%;
+    font-size: 20px;
+    padding-top: 5%;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.main-nav {
+    float: center;
+    list-style: none;
+    margin-top: 55px;
+    padding-top: 2%;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #ffffff;
 }
 
 input, select { 
