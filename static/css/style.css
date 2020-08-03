@@ -34,10 +34,11 @@ body {
 }
 .login { 
 	width: 35%;
-    float: left;
-    padding-left: 15%;
-    position: relative;
-    padding-top: 5%;
+	float: left;
+ 	padding-left: 15%;
+ 	position: relative;
+	padding-top: 5%;
+	font-size: 18px;
 }
 
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
