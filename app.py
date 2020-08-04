@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import pickle
 from table import Results
 from table import Item
+from plots import Full_plot
 
 app = Flask(__name__)
 
@@ -9,6 +10,10 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('index.html', text="Wprowadź dane")
+
+@app.route('/plots')
+def plots():
+    return render_template('plots.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -48,6 +53,28 @@ def predict():
     
     except:
         return render_template('index.html', table="Podane słowo nie występuje w słowniku"  )
+    
+    
+@app.route('/fullplot',methods=['POST'])
+def fullplot():
+    party = request.form.get("party")
+    
+    if party == "0":
+        partyname = "PIS"
+    elif party == "1":
+        partyname = "KO"
+    elif party == "2":
+        partyname = "LEWICA"
+    elif party == "3":
+        partyname = "KONFEDERACJA"
+    elif party == "4":
+        partyname = "PSL-KUKIZ"
+            
+    plot = Full_plot.plot_with_matplotlib_full(partyname)
+    
+    
+    
+    return render_template('plots.html', plot=plot)
 
 
 if __name__ == "__main__":
