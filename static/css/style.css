@@ -66,6 +66,7 @@ body {
 .main-nav li {
     display: inline-block;
     margin-left: 40px;
+	margin-top: 3%;
 }
 
 .main-nav li a:link,
