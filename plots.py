@@ -13,6 +13,7 @@ from adjustText import adjust_text
 
 import numpy as np
 
+
 class Full_plot():
     
     def plot_with_matplotlib_full(party):
@@ -52,7 +53,7 @@ class Full_plot():
                   "propaganda", "telewizja", "szczujnia", "tępy", "tv", "onkologia",
                   "miliard", "idiota", "polak", "naród", "złodziej", "oszust", "prezes",
                   "komunista", "kiszczak", "jaruzelski", "zbrodniarz", "wałęsa", "gaz"]
-        print("dict done")
+        #print("dict done")
     
         new_labels = []
         new_x_vals = []
@@ -65,19 +66,17 @@ class Full_plot():
                 new_labels.append(word)
                 new_x_vals.append(x_vals[index])
                 new_y_vals.append(y_vals[index])
-        print("labels done")       
+        #print("labels done")       
         
-                
-        plt.figure(figsize=(12, 12))
+        #plt.subplots(figsize=(12,12))
+        fig = plt.figure(figsize=(12, 12))
         plt.scatter(new_x_vals, new_y_vals)
         plt.title(party, fontdict=None, loc='center', pad=None, fontsize=25)
        
         texts = [plt.text(new_x_vals[i], new_y_vals[i], new_labels[i], ha='center', va='center', fontsize=13) for i in range(len(new_x_vals))]
         adjust_text(texts, arrowprops=dict(arrowstyle='->', color='red'))
-        
-    plot_function_full = plot_with_matplotlib_full
-    
-Full_plot.plot_function_full("PIS")
+        plt.show()
+        return fig
     
     
     
