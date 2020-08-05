@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 from table import Results
 from table import Item
-from plots import Full_plot
+#from plots import Full_plot
 
 app = Flask(__name__)
 
@@ -54,7 +54,7 @@ def predict():
     except:
         return render_template('index.html', table="Podane słowo nie występuje w słowniku"  )
     
-    
+    """
 @app.route('/fullplot',methods=['POST'])
 def fullplot():
     party = request.form.get("party")
@@ -75,7 +75,7 @@ def fullplot():
     
     
     return render_template('plots.html', plot=plot)
-
+"""
 
 if __name__ == "__main__":
     app.run(debug=True)
