@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 from table import Results
 from table import Item
-#from plots import Full_plot
+from plots import Full_plot
 
 app = Flask(__name__)
 
