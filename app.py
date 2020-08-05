@@ -54,7 +54,7 @@ def predict():
     except:
         return render_template('index.html', table="Podane słowo nie występuje w słowniku"  )
     
-    """
+    
 @app.route('/fullplot',methods=['POST'])
 def fullplot():
     party = request.form.get("party")
@@ -69,13 +69,14 @@ def fullplot():
         partyname = "KONFEDERACJA"
     elif party == "4":
         partyname = "PSL-KUKIZ"
+        """
             
     plot = Full_plot.plot_with_matplotlib_full(partyname)
     
+    """
     
-    
-    return render_template('plots.html', plot=plot)
-"""
+    return render_template('plots.html', plot="Page under construction")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
