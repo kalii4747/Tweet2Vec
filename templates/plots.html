@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Tweet2Vec</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -40,7 +42,7 @@
             </select> 
 
             
-            <input type="text" name="keyword" placeholder="słowo kluczowe" required="required" />
+            
 
             
             <button type="submit" class="btn btn-primary btn-block btn-large">Wyświetl mapę słów</button>
@@ -50,9 +52,21 @@
        <br>
 
      </div>
-      <div class="results">
-            {{ plot }}
+      <div class="plot">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <div class="chart" id="bargraph">
+                <script>
+                    var graphs = {{plot | safe}};
+                    Plotly.plot('bargraph',graphs,{});
+                </script>
+            </div>
         </div>
+    </div>
+</div>
     </header>
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plots.js') }}"></script>
 </body>
 </html>
