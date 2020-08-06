@@ -51,6 +51,14 @@ body {
     padding-top: 5%;
 }
 
+.plot {
+    width: 50%;
+    float: left;
+    padding-left: 2%;
+    font-size: 20px;
+    padding-top: 5%;
+}
+
 .row {
     max-width: 1140px;
     margin: 0 auto;
