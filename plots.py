@@ -72,7 +72,8 @@ class Full_plot():
             y = new_y_vals,
             text = new_labels,
             textposition='top center',
-            mode = 'markers+text'
+            mode = 'markers+text',
+            textfont_size=9 
         )]
 
 
