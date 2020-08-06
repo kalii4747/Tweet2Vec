@@ -6,13 +6,10 @@ Created on Thu Jul 30 23:07:46 2020
 """
 
 import pickle
-
-import matplotlib.pyplot as plt
-
-from adjustText import adjust_text
-
+import plotly
+import plotly.graph_objs as go
+import json
 import numpy as np
-
 
 class Full_plot():
     
@@ -66,17 +63,22 @@ class Full_plot():
                 new_labels.append(word)
                 new_x_vals.append(x_vals[index])
                 new_y_vals.append(y_vals[index])
-        #print("labels done")       
         
-        #plt.subplots(figsize=(12,12))
-        fig = plt.figure(figsize=(12, 12))
-        plt.scatter(new_x_vals, new_y_vals)
-        plt.title(party, fontdict=None, loc='center', pad=None, fontsize=25)
-       
-        texts = [plt.text(new_x_vals[i], new_y_vals[i], new_labels[i], ha='center', va='center', fontsize=13) for i in range(len(new_x_vals))]
-        adjust_text(texts, arrowprops=dict(arrowstyle='->', color='red'))
-        plt.show()
-        return fig
+        
+        
+        
+        data = [go.Scatter(
+            x = new_x_vals,
+            y = new_y_vals,
+            text = new_labels,
+            textposition='top center',
+            mode = 'markers+text'
+        )]
+
+
+        graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+
+        return graphJSON
     
     
     
