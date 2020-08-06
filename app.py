@@ -2,7 +2,9 @@ from flask import Flask, request, render_template
 import pickle
 from table import Results
 from table import Item
-#from plots import Full_plot
+from plots import Full_plot
+
+
 
 app = Flask(__name__)
 
@@ -69,13 +71,11 @@ def fullplot():
         partyname = "KONFEDERACJA"
     elif party == "4":
         partyname = "PSL-KUKIZ"
-        """
             
     plot = Full_plot.plot_with_matplotlib_full(partyname)
     
-    """
-    
-    return render_template('plots.html', plot="Page under construction")
+  
+    return render_template('plots.html', plot=plot)
 
 
 if __name__ == "__main__":
