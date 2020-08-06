@@ -8,4 +8,4 @@ Jinja2==2.10.1
 certifi==2019.11.28
 itsdangerous==1.1.0
 plotly==4.4.1
-json
+json5==0.9.1
