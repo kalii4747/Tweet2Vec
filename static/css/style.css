@@ -44,8 +44,12 @@ body {
 .login1 { 
 	float: center;
     list-style: none;
-    margin-top: 5;
-    
+    margin-top: 5px;
+}
+
+.login1 li {
+    display: inline-block;
+    margin-left: 40px;
 }
 
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
