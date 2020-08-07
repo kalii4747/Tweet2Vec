@@ -78,9 +78,7 @@ class Full_plot():
         )
         
         layout = go.Layout(
-                autosize=False,
-                width=1750,
-                height=700
+                autosize=True
                 )
         
         fig = go.Figure(data=data, layout=layout)
