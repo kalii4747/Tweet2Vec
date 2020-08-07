@@ -67,17 +67,25 @@ class Full_plot():
         
         
         
-        data = [go.Scatter(
+        data = go.Scatter(
             x = new_x_vals,
             y = new_y_vals,
             text = new_labels,
             textposition='top center',
             mode = 'markers+text',
-            textfont_size=9 
-        )]
-
-
-        graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+            textfont_size=9
+ 
+        )
+        
+        layout = go.Layout(
+                autosize=False,
+                width=1750,
+                height=650
+                )
+        
+        fig = go.Figure(data=data, layout=layout)
+        
+        graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
         return graphJSON
     
