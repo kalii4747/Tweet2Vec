@@ -3,6 +3,7 @@ import pickle
 from table import Results
 from table import Item
 from plots import Full_plot
+from tweet_gen import Tweet_generator
 
 
 
@@ -16,6 +17,10 @@ def home():
 @app.route('/plots')
 def plots():
     return render_template('plots.html')
+
+@app.route('/tweet_gen')
+def tweet_gen():
+    return render_template('tweet_gen.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -75,6 +80,74 @@ def fullplot():
     
   
     return render_template('plots.html', plot=plot)
+
+
+
+@app.route('/generate',methods=['POST'])
+def generate():
+    
+
+    partyname = ""    
+    try:
+                
+        party = request.form.get("party")
+        output_num = int(request.form.get("output_num"))
+        similar_num = int(request.form.get("similar_num"))
+        words = request.form.get("words").lower()
+        
+        if party == "0":
+            partyname = "PIS"
+        elif party == "1":
+            partyname = "KO"
+        elif party == "2":
+            partyname = "LEWICA"
+        elif party == "3":
+            partyname = "KONFEDERACJA"
+        elif party == "4":
+            partyname = "PSL-KUKIZ"
+    
+        word_list = []
+        
+        for word in words.split(","):
+            word = word.replace(" ","")
+            word_list.append(word)
+        
+        input_num = len(word_list)
+            
+        table = Tweet_generator.tweet_gen(input_num, output_num, word_list, similar_num, partyname)
+                   
+                  
+           
+        return render_template('tweet_gen.html', table=table,  text="Tweet wygenerowany dla {}".format(partyname))
+    
+    except:
+        return render_template('tweet_gen.html', table="Jedno z podanych słów nie występuje w słowniku"  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
