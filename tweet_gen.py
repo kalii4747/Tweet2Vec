@@ -9,40 +9,7 @@ import pickle
 
 
 
-# print("\n Dla jakiej partii chcesz wygenerować tweet?")
-# party = (str(input())).upper()
 
-# filename = "models/" + party + "_15-iter_trained_model.sav"
-# loaded_model = pickle.load(open(filename, "rb"))
-
-
-# print("\n Podaj liczbę słów wejciowych:")
-# input_words_num = int(input())
-
-# print("\n Podaj oczekiwaną liczbę słów w zdaniu:")
-# total_words_num = int(input())
-
-# print("\n Które w kolejnoci najbliższe słowo ma zostać wygenerowane jako następne? Podaj liczbę większą od 0.")
-# n = int(input())
-
-
-# word_list = []
-
-# if input_words_num == 1:
-    
-#     print("\n Podaj pierwsze słowo:")
-
-#     first_word = str(input())
-#     word_list.append(first_word)
-    
-# elif input_words_num > 1: 
-    
-#     for i in range(0, input_words_num):
-        
-#         print("\n Podaj " + str(i+1) + " słowo:")
-
-#         word = str(input())
-#         word_list.append(word)
         
 class Tweet_generator():
 
@@ -61,13 +28,13 @@ class Tweet_generator():
                 
     
                 predicted_word = loaded_model.wv.most_similar (positive=word_list)
-    #            print(predicted_word)
+  
                 next_word = predicted_word[similar_num-1][0]
                 if next_word in word_list:
                     next_word = predicted_word[similar_num][0]
                     
                 word_list.append(next_word)
-    #            print(word_list)
+   
     
             
         elif input_words_num > 1: 
@@ -86,13 +53,6 @@ class Tweet_generator():
             sentence = sentence + word + " "
             
         return sentence
-        # print("\n" + sentence)
-    
-    
-    
-    
-
-#Tweet_generator.tweet_gen(input_words_num, total_words_num, word_list)
-
+        
 
 
