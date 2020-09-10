@@ -12,7 +12,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html', text="Wprowadź dane")
+    return render_template('about.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/most_similar')
+def most_similar():
+    return render_template('most_similar.html')
 
 @app.route('/plots')
 def plots():
@@ -55,10 +63,10 @@ def predict():
     
         table = Results(results)
            
-        return render_template('index.html', table=table,  text="Najbardziej podobne słowa do {} dla {}".format(key_word, partyname))
+        return render_template('most_similar.html', table=table,  text="Najbardziej podobne słowa do {} dla {}".format(key_word, partyname))
     
     except:
-        return render_template('index.html', table="Podane słowo nie występuje w słowniku"  )
+        return render_template('most_similar.html', table="Podane słowo nie występuje w słowniku"  )
     
     
 @app.route('/fullplot',methods=['POST'])
