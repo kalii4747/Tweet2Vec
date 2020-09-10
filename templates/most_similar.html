@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Tweet2Vec</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -28,13 +26,11 @@
             </div>                    
         </nav>
       
-     <div class="login1">
-         <li>
-        <h1>Word map</h1>
-             </li>
+     <div class="login">
+        <h1>Most similar</h1>
+
          <!-- Main Input For Receiving Query to our ML -->
-        <form action="{{ url_for('fullplot')}}"method="post">
-            <li>
+        <form action="{{ url_for('predict')}}"method="post">
             <select name="party"> 
                 <option value="0">PiS</option> 
                 <option value="1">KO</option>
@@ -42,32 +38,22 @@
                 <option value="3">Konfederacja</option>
                 <option value="4">PSL-Kukiz</option>
             </select> 
-                </li>           
-            
-            <li>
-            <button type="submit" class="btn btn-primary btn-block btn-large">Wyświetl mapę słów</button>
-                </li>
+
+            <input type="text" name="keyword" placeholder="słowo kluczowe" required="required" />
+
+            <input type="text" name="topn" placeholder="liczba słów" required="required" />
+
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Pokaż najbardziej podobne słowa</button>
         </form>
 
        <br>
        <br>
 
      </div>
-      <div class="plot">
-    
-       
-        <div class="col-md-6">
-            <div class="chart" id="bargraph">
-                <script>
-                    var graphs = {{plot | safe}};
-                    Plotly.plot('bargraph',graphs,{});
-                </script>
-            </div>
+      <div class="results">
+            {{ table }}
         </div>
-    
-</div>
     </header>
-    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/plots.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Tweet2Vec</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+    <header>
+      
+      <nav>
+            <div class="row">
+                              
+                <ul class="main-nav">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/most_similar">Most similar</a></li>
+                    <li><a href="/plots">Word map</a></li>
+                    <li><a href="/tweet_gen">Tweet generator</a></li>
+                </ul>
+            </div>                    
+        </nav>
+      
+        <div class='about' style='text-indent: 1.25cm' >
+            <p style="text-align: justify">Aplikacja jest przedstawieniem analizy języka, jakim posługują się polscy politycy na Twitterze z podziałem na następujące frakcje polityczne:</p>
+            <p style="text-align: justify">- PiS</p>
+            <p style="text-align: justify">- KO (Koalicja Obywatelska)</p>
+            <p style="text-align: justify">- Lewica</p>
+            <p style="text-align: justify">- Konfederacja</p>
+            <p style="text-align: justify">- PSL-Kukiz</p>
+            <br>
+            
+            <p style="text-align: justify">Do przeprowadzenia analizy użyty został algorytm <i>word2vec</i> z bilioteki <i>Gensim</i> po wcześniejszej lematyzacji przy użyciu słownika języka polskiego <i>Morfeusz 2</i>.  Zasada działania jest relatywnie prosta i polega na przypisywaniu słowom występującym w tekście wielowymiarowych wektorów w zależności od ich częstotliwości występowania względem siebie. Algorytm został stworzony z myślą o grupowaniu słów mających podobne znaczenie, ale przy odpowiednich parametrach uczenia można na znaleźć słowa, które występują w podobnych kontekstach. Tweety członków każdej z frakcji zostały przeanalizowane oddzielnie co pozwala dostrzec wyraźne różnice w sposobie mówienia na różne tematy. Wyniki zostały przedstawione na trzy sposoby:</p>
+            <p style="text-align: justify">- Most Similar - przedstawienie słów najbardziej podobnych do słowa zadanego, innymi słowy słów leżących najbliżej w przestrzeni wielowymiarowej. Pozwala to zobrazować w jakich kontekstach najczęściej jest używane dane słowo. Najlepsze wyniki zwraca dla słów o nacechowaniu politycznym.</p>
+            <p style="text-align: justify">- Word Map - mapa przedstawiająca wybrane słowa na przestrzeni dwuwymiarowej po wcześniejszym zredukowaniu liczby wymiarów.</p>
+            <p style="text-align: justify">- Tweet Generator - pokazuje jak mógłby wyglądać tweet dla danej partii biorąc pod uwagę jedno z najbliżej leżących słów do poprzednich</p>
+        
+        </div>
+    </header>
+</body>
+</html>
