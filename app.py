@@ -63,7 +63,7 @@ def predict():
     
         table = Results(results)
            
-        return render_template('most_similar.html', table=table,  text="Najbardziej podobne słowa do {} dla {}".format(key_word, partyname))
+        return render_template('most_similar.html', table=table,  party="Partia: {}".format(partyname), key_word="Słowo kluczowe: {}".format(key_word))
     
     except:
         return render_template('most_similar.html', table="Podane słowo nie występuje w słowniku"  )
@@ -126,7 +126,8 @@ def generate():
                    
                   
            
-        return render_template('tweet_gen.html', table=table,  text="Tweet wygenerowany dla {}".format(partyname))
+        return render_template('tweet_gen.html', table=table, party="Partia: {}".format(partyname), 
+                               similar_num="Stopień podobieństwa: {}".format(similar_num), words="słowa zadane: {}".format(words))
     
     except:
         return render_template('tweet_gen.html', table="Jedno z podanych słów nie występuje w słowniku"  )
