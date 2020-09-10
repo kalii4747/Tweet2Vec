@@ -41,7 +41,7 @@
 
             <input type="text" name="keyword" placeholder="słowo kluczowe" required="required" />
 
-            <input type="text" name="topn" placeholder="liczba słów" required="required" />
+            <input type="text" name="topn" placeholder="liczba słów do wyświetlenia" required="required" />
 
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Pokaż najbardziej podobne słowa</button>
@@ -52,6 +52,8 @@
 
      </div>
       <div class="results">
+            <p style="text-align: left">{{ party }} <br></p>
+            <p style="text-align: left">{{ key_word  }} <br></p>
             {{ table }}
         </div>
     </header>

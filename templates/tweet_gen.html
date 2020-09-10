@@ -42,7 +42,7 @@
             
             <input type="text" name="output_num" placeholder="podaj oczekiwaną liczbę słów w zdaniu" required="required" />
             
-            <input type="text" name="similar_num" placeholder="które słowo ma być brane pod uwagę (liczba całkowita)" required="required" />
+            <input type="text" name="similar_num" placeholder="które słowo ma być brane pod uwagę (liczna całkowita)" required="required" />
             
             <input type="text" name="words" placeholder="podaj słowo lub słowa wejściowe oddzielone przecinkami" required="required" />
 
@@ -55,6 +55,10 @@
 
      </div>
       <div class="results">
+            <p style="text-align: left">{{ party }} <br></p>
+            <p style="text-align: left">{{ similar_num  }} <br></p>
+            <p style="text-align: left">{{ words  }} <br></p>
+          <br>
             {{ table }}
         </div>
     </header>
