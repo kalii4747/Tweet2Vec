@@ -85,7 +85,7 @@ def predict():
                                 konfederacja="Konfederacja", pslkukiz="PSL-Kukiz")
     
     except:
-        return render_template('most_similar.html', table="Podane słowo nie występuje w słowniku"  )
+        return render_template('most_similar.html', key_word="Podane słowo nie występuje w słowniku"  )
     
     
 @app.route('/fullplot',methods=['POST'])
