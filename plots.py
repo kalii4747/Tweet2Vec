@@ -49,7 +49,8 @@ class Full_plot():
                   "ziobro", "hołownia", "praworządność", "kurski", "tvp", "propagandysta",
                   "propaganda", "telewizja", "szczujnia", "tępy", "tv", "onkologia",
                   "miliard", "idiota", "polak", "naród", "złodziej", "oszust", "prezes",
-                  "komunista", "kiszczak", "jaruzelski", "zbrodniarz", "wałęsa", "gaz"]
+                  "komunista", "kiszczak", "jaruzelski", "zbrodniarz", "wałęsa", "gaz", "smoleńsk", "troll", "taśma", "żałosny",
+                  "ludobójstwo", "zbrodnia", "upamiętniać", "nagonka"]
         #print("dict done")
     
         new_labels = []
