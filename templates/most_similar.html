@@ -26,36 +26,57 @@
             </div>                    
         </nav>
       
-     <div class="login">
+     <div class="login1">
+         <li>
         <h1>Most similar</h1>
+             </li>
 
          <!-- Main Input For Receiving Query to our ML -->
         <form action="{{ url_for('predict')}}"method="post">
-            <select name="party"> 
-                <option value="0">PiS</option> 
-                <option value="1">KO</option>
-                <option value="2">Lewica</option>
-                <option value="3">Konfederacja</option>
-                <option value="4">PSL-Kukiz</option>
-            </select> 
-
+            <li>
             <input type="text" name="keyword" placeholder="słowo kluczowe" required="required" />
+                </li>
+            <li>
 
             <input type="text" name="topn" placeholder="liczba słów do wyświetlenia" required="required" />
+            </li>
 
-
+            <li>
             <button type="submit" class="btn btn-primary btn-block btn-large">Pokaż najbardziej podobne słowa</button>
+                </li>
         </form>
 
        <br>
        <br>
 
      </div>
-      <div class="results">
-            <p style="text-align: left">{{ party }} <br></p>
-            <p style="text-align: left">{{ key_word  }} <br></p>
+      <div class="tables">
+            
+            <p style="text-align: top">{{ key_word  }}</p>
           <br>
-            {{ table }}
+
+          <li>
+              {{ pis }}<br><br>
+            {{ table_pis }}
+              </li>
+          <li>
+              {{ ko }}<br><br>
+            {{ table_ko }}
+              </li>
+          <li>
+              {{ lewica }}<br><br>
+            {{ table_lewica }}
+              </li>
+          <li>
+              {{ konfederacja }}<br><br>
+            {{ table_konfederacja }}
+              </li>
+          <li>
+              {{ pslkukiz }}<br><br>
+            {{ table_pslkukiz }}
+              </li>
+
+          
         </div>
     </header>
 </body>
